@@ -138,44 +138,44 @@ document.addEventListener('DOMContentLoaded', function() {
 // Define image URLs for each map category
 const mapImages = {
     'sunset': [
-        '/assets/Maps/SUNSET/Loading_Screen_Sunset.webp',
-        '/assets/Maps/SUNSET/Sunset_Aftermath.webp',
-        '/assets/Maps/SUNSET/Sunset_Basketball_Court_Radio.webp',
-        '/assets/Maps/SUNSET/Sunset_Kingdom_Facility.webp',
-        '/assets/Maps/SUNSET/Sunset_Restaurant_Radio.webp',
-        '/assets/Maps/SUNSET/Sunset_Transpo_Center_Loudspeakers.webp'
+        'assets/Maps/SUNSET/Loading_Screen_Sunset.webp',
+        'assets/Maps/SUNSET/Sunset_Aftermath.webp',
+        'assets/Maps/SUNSET/Sunset_Basketball_Court_Radio.webp',
+        'assets/Maps/SUNSET/Sunset_Kingdom_Facility.webp',
+        'assets/Maps/SUNSET/Sunset_Restaurant_Radio.webp',
+        'assets/Maps/SUNSET/Sunset_Transpo_Center_Loudspeakers.webp'
     ],
     'lotus': [
-        '/assets/Maps/LOTUS/Loading_Screen_Lotus.webp',
-        '/assets/Maps/LOTUS/tobias-koepp-lotus-valorant-tobiaskoepp-mapj-03.jpg',
-        '/assets/Maps/LOTUS/tobias-koepp-lotus-valorant-tobiaskoepp-mapj-04.jpg',
-        '/assets/Maps/LOTUS/tobias-koepp-lotus-valorant-tobiaskoepp-mapj-05.jpg',
-        '/assets/Maps/LOTUS/tobias-koepp-lotus-valorant-tobiaskoepp-mapj-06.jpg',
-        '/assets/Maps/LOTUS/tobias-koepp-lotus-valorant-tobiaskoepp-mapj-09.jpg'
+        'assets/Maps/LOTUS/Loading_Screen_Lotus.webp',
+        'assets/Maps/LOTUS/tobias-koepp-lotus-valorant-tobiaskoepp-mapj-03.jpg',
+        'assets/Maps/LOTUS/tobias-koepp-lotus-valorant-tobiaskoepp-mapj-04.jpg',
+        'assets/Maps/LOTUS/tobias-koepp-lotus-valorant-tobiaskoepp-mapj-05.jpg',
+        'assets/Maps/LOTUS/tobias-koepp-lotus-valorant-tobiaskoepp-mapj-06.jpg',
+        'assets/Maps/LOTUS/tobias-koepp-lotus-valorant-tobiaskoepp-mapj-09.jpg'
     ],
     'icebox': [
-        '/assets/Maps/ICEBOX/Loading_Screen_Icebox.webp',
-        '/assets/Maps/ICEBOX/george-sokol-georgesokol-valorant-icebox-attackerspawnship1.jpg',
-        '/assets/Maps/ICEBOX/george-sokol-georgesokol-valorant-icebox-attackerspawnship2.jpg',
-        '/assets/Maps/ICEBOX/george-sokol-georgesokol-valorant-icebox-defenderspawnice.jpg',
-        '/assets/Maps/ICEBOX/george-sokol-georgesokol-valorant-icebox-shipinterior.jpg',
-        '/assets/Maps/ICEBOX/george-sokol-georgesokol-valorant-icebox-shipreadyroom.jpg'
+        'assets/Maps/ICEBOX/Loading_Screen_Icebox.webp',
+        'assets/Maps/ICEBOX/george-sokol-georgesokol-valorant-icebox-attackerspawnship1.jpg',
+        'assets/Maps/ICEBOX/george-sokol-georgesokol-valorant-icebox-attackerspawnship2.jpg',
+        'assets/Maps/ICEBOX/george-sokol-georgesokol-valorant-icebox-defenderspawnice.jpg',
+        'assets/Maps/ICEBOX/george-sokol-georgesokol-valorant-icebox-shipinterior.jpg',
+        'assets/Maps/ICEBOX/george-sokol-georgesokol-valorant-icebox-shipreadyroom.jpg'
     ],
     'haven': [
-        '/assets/Maps/HAVEN/robin-lhebrard-weststudio-valorant-61.jpg',
-        '/assets/Maps/HAVEN/robin-lhebrard-weststudio-valorant-62.jpg',
-        '/assets/Maps/HAVEN/robin-lhebrard-weststudio-valorant-63.jpg',
-        '/assets/Maps/HAVEN/robin-lhebrard-weststudio-valorant-64.jpg',
-        '/assets/Maps/HAVEN/robin-lhebrard-weststudio-valorant-65.jpg',
-        '/assets/Maps/HAVEN/robin-lhebrard-weststudio-valorant-66.jpg'
+        'assets/Maps/HAVEN/robin-lhebrard-weststudio-valorant-61.jpg',
+        'assets/Maps/HAVEN/robin-lhebrard-weststudio-valorant-62.jpg',
+        'assets/Maps/HAVEN/robin-lhebrard-weststudio-valorant-63.jpg',
+        'assets/Maps/HAVEN/robin-lhebrard-weststudio-valorant-64.jpg',
+        'assets/Maps/HAVEN/robin-lhebrard-weststudio-valorant-65.jpg',
+        'assets/Maps/HAVEN/robin-lhebrard-weststudio-valorant-66.jpg'
     ],
     'split': [
-        '/assets/Maps/SPLIT/Loading_Screen_Split.webp',
-        '/assets/Maps/SPLIT/eric-durante-durante-valorant-48.jpg',
-        '/assets/Maps/SPLIT/eric-durante-durante-valorant-49.jpg',
-        '/assets/Maps/SPLIT/george-sokol-georgesokol-valorant-split-glitchpopstore.jpg',
-        '/assets/Maps/SPLIT/george-sokol-georgesokol-valorant-split-trainstation.jpg',
-        '/assets/Maps/SPLIT/george-sokol-georgesokol-valorant-split-trainstation2.jpg'
+        'assets/Maps/SPLIT/Loading_Screen_Split.webp',
+        'assets/Maps/SPLIT/eric-durante-durante-valorant-48.jpg',
+        'assets/Maps/SPLIT/eric-durante-durante-valorant-49.jpg',
+        'assets/Maps/SPLIT/george-sokol-georgesokol-valorant-split-glitchpopstore.jpg',
+        'assets/Maps/SPLIT/george-sokol-georgesokol-valorant-split-trainstation.jpg',
+        'assets/Maps/SPLIT/george-sokol-georgesokol-valorant-split-trainstation2.jpg'
     ]
 };
 
