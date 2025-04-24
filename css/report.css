@@ -1,0 +1,204 @@
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.header h1 {
+    font-size: 60px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+}
+
+.header h1:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #21b4f2;
+}
+
+.header p {
+    color: #a1c9ff;
+    font-size: 16px;
+    max-width: 600px;
+    margin: 20px auto 0;
+}
+
+.main-content {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Bug Report Form */
+.bug-report-container {
+    background-color: rgba(0, 51, 102, 0.6);
+    border-radius: 10px;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 900px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.form-instructions {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #e0e0e0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    background-color: rgba(0, 15, 30, 0.7);
+    border: 1px solid #003366;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #0099cc;
+    box-shadow: 0 0 5px rgba(0, 153, 204, 0.5);
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper::after {
+    content: '';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #ffffff;
+    pointer-events: none;
+}
+
+/* Severity Radio Buttons */
+.severity-options {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.severity-option {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.radio-input {
+    margin-right: 8px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+/* File Upload Button */
+.file-upload {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    max-width: fit-content;
+}
+
+.file-upload:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.file-upload svg {
+    margin-right: 8px;
+}
+
+.file-input {
+    display: none;
+}
+
+/* Checkbox for Follow-up */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.checkbox-input {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* Submit Button */
+.submit-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.submit-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #0069d9;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .severity-options {
+        flex-direction: column;
+    }
+    
+    .severity-option {
+        margin-bottom: 10px;
+    }
+}
