@@ -19,7 +19,7 @@ body {
     position: relative;
     padding-left: clamp(15px, 3vw, 40px);
     padding-right: clamp(15px, 3vw, 40px);
-    background: url("/assets/Background/3409297.jpg");
+    background: url("assets/Background/3409297.jpg");
 }
 
 /* Glow Effects - Made more responsive with relative units */
