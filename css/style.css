@@ -13,13 +13,21 @@ body {
     overflow-x: hidden;
 }
 
+.background-image{
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
 .container {
     max-width: 1440px;
     margin: 0 auto;
     position: relative;
     padding-left: clamp(15px, 3vw, 40px);
     padding-right: clamp(15px, 3vw, 40px);
-    background: url("../assets/Background/3409297.jpg");
 }
 
 /* Glow Effects - Made more responsive with relative units */
