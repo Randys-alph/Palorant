@@ -1,7 +1,5 @@
-// agents.js - JavaScript for the agents page
-
 document.addEventListener('DOMContentLoaded', function() {
-    // Add scroll animations for the agents page
+    // scroll animations for the agents page
     const sections = document.querySelectorAll('section');
 
     const observer = new IntersectionObserver(entries => {
@@ -17,49 +15,32 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(section);
     });
 
-    // Add CSS for the scroll animations
-    document.head.insertAdjacentHTML('beforeend', `
-        <style>
-            .fade-in {
-                opacity: 0;
-                transform: translateY(20px);
-                transition: opacity 0.8s ease, transform 0.8s ease;
-            }
-            
-            .fade-in.visible {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        </style>
-    `);
-
-    // Agent cards interaction
+    // agent cards interaction
     const agentCards = document.querySelectorAll('.agent-card');
     const detailedView = document.querySelector('.detailed-view');
     const agentDetailImage = document.querySelector('.agent-detail-image');
 
-    // Function to update detailed view content
+    // function to update detailed view content
     function updateAgentDetails(card) {
-        // Get agent information from the card
         const agentName = card.querySelector('.agent-name').textContent;
         const agentRole = card.querySelector('.agent-role').textContent;
         const agentDescription = card.querySelector('.agent-description').textContent;
         const agentImageSrc = card.querySelector('.agent-image').src;
         
-        // Update the detailed view with this information
+        // update the detailed view
         document.querySelector('.agent-detail-name').textContent = agentName;
         document.querySelector('.agent-detail-role').textContent = agentRole;
         agentDetailImage.src = agentImageSrc;
         
-        // Update bio and abilities based on the agent
+        // update bio and abilities based on the agent
         const agentBio = getBioByName(agentName);
         document.querySelector('.agent-detail-bio').textContent = agentBio;
         
-        // Update abilities
+        // update abilities
         updateAgentAbilities(agentName);
     }
 
-    // Function to get agent bio by name
+    // function to get agent bio by name
     function getBioByName(name) {
         const bios = {
             'Reyna': 'Forged in the heart of Mexico, Reyna dominates single combat, popping off with each kill she scores. Her capability is only limited by her raw skill, making her highly dependent on performance.',
@@ -78,17 +59,12 @@ document.addEventListener('DOMContentLoaded', function() {
         return bios[name] || 'No biographical information available for this agent.';
     }
 
-    // Function to update agent abilities
+    // function to update agent abilities
     function updateAgentAbilities(agentName) {
         const abilitiesContainer = document.querySelector('.detailed-abilities');
-        
-        // Clear current abilities
         abilitiesContainer.innerHTML = '';
-        
-        // Get abilities for this agent
         const abilities = getAbilitiesByName(agentName);
-        
-        // Add each ability to the container
+
         abilities.forEach(ability => {
             const abilityDiv = document.createElement('div');
             abilityDiv.className = 'detailed-ability';
@@ -105,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Function to get abilities by agent name
+    // function to get abilities by agent name
     function getAbilitiesByName(name) {
         const agentAbilities = {
             'Reyna': [
@@ -120,10 +96,62 @@ document.addEventListener('DOMContentLoaded', function() {
                 { key: 'C', name: 'Owl Drone', description: 'Deploy a drone that can be piloted to scout for enemies. While piloting, fire a marking dart at enemies to reveal their position.' },
                 { key: 'X', name: 'Hunter\'s Fury', description: 'Fire up to three deadly energy blasts that spear across the entire map. Each hit enemy takes damage and is marked.' }
             ],
-            // Add more agents here...
+            'Sage': [
+                { key: 'Q', name: 'Slow Orb', description: 'Cast a slowing orb that detonates upon landing, creating a lingering field that slows players caught inside of it.' },
+                { key: 'E', name: 'Healing Orb', description: 'Heal an ally or yourself to full health over a few seconds.' },
+                { key: 'C', name: 'Barrier Orb', description: 'Create a solid wall. Can be rotated before casting.' },
+                { key: 'X', name: 'Resurrection', description: 'Target a friendly corpse to revive them with full health.' }
+            ],
+            'Jett': [
+                { key: 'Q', name: 'Updraft', description: 'Propel yourself upwards after a brief delay.' },
+                { key: 'E', name: 'Tailwind', description: 'Dash a short distance in the direction you are moving.' },
+                { key: 'C', name: 'Cloudburst', description: 'Throw a projectile that expands into a brief smoke cloud on impact with a surface.' },
+                { key: 'X', name: 'Blade Storm', description: 'Equip a set of highly accurate throwing knives. Fire to throw a single knife. Alternative fire throws all remaining daggers at an enemy.' }
+            ],
+            'Omen': [
+                { key: 'Q', name: 'Paranoia', description: 'Fire a shadow projectile forward, briefly reducing the vision range and deafening all players it touches.' },
+                { key: 'E', name: 'Dark Cover', description: 'Cast an orb that bursts into a sphere of shadow obscuring vision. Can be charged to increase distance.' },
+                { key: 'C', name: 'Shrouded Step', description: 'After a delay, teleport a short distance.' },
+                { key: 'X', name: 'From the Shadows', description: 'Select anywhere on the map to teleport and reform. When arriving, appear as a Shade that can be destroyed by enemies to cancel the teleport.' }
+            ],
+            'Brimstone': [
+                { key: 'Q', name: 'Incendiary', description: 'Launch a grenade that deploys a lingering fire zone that damages players within it.' },
+                { key: 'E', name: 'Sky Smoke', description: 'Deploy a tactical map and place smoke markers. Confirm to call in orbital smoke strikes at all marked locations.' },
+                { key: 'C', name: 'Stim Beacon', description: 'Deploy a stim beacon that gives players RapidFire when in its range.' },
+                { key: 'X', name: 'Orbital Strike', description: 'Use your map to target a location, calling down a devastating orbital strike that pulses for high damage over several seconds.' }
+            ],
+            'Killjoy': [
+                { key: 'Q', name: 'Alarmbot', description: 'Deploy a bot that hunts down enemies in range. After reaching its target, the bot explodes, applying vulnerable to enemies in the area.' },
+                { key: 'E', name: 'Turret', description: 'Deploy a turret that fires at enemies in a 180-degree cone.' },
+                { key: 'C', name: 'Nanoswarm', description: 'Place a hidden canisters that you can trigger to deploy a damaging swarm of nanobots.' },
+                { key: 'X', name: 'Lockdown', description: 'Deploy a device that detains all enemies caught in its radius for about 8 seconds after a windup.' }
+            ],
+            'Yoru': [
+                { key: 'Q', name: 'Blindside', description: 'Tear a hole through reality to send out a flash that blinds players looking at it.' },
+                { key: 'E', name: 'Gatecrash', description: 'Place a rift tether. Activate to teleport to its location. Can also be triggered remotely.' },
+                { key: 'C', name: 'Fakeout', description: 'Deploy an echo that mimics footsteps when activated. Enemies who shoot the echo are revealed.' },
+                { key: 'X', name: 'Dimensional Drift', description: 'Equip a mask that allows you to see between dimensions and enter the alternate dimension, becoming invisible to enemies.' }
+            ],
+            'Chamber': [
+                { key: 'Q', name: 'Headhunter', description: 'Activate to equip a heavy pistol. Alt Fire to aim down sights.' },
+                { key: 'E', name: 'Rendezvous', description: 'Place two teleport anchors. While on the ground and in range of an anchor, reactivate to quickly teleport to the other anchor.' },
+                { key: 'C', name: 'Trademark', description: 'Place a trap that scans for enemies. When a visible enemy comes in range, the trap counts down and then destabilizes the terrain around them, creating a lingering slowing field.' },
+                { key: 'X', name: 'Tour De Force', description: 'Activate to summon a powerful, custom sniper rifle that will kill an enemy with any direct hit. Killing an enemy creates a lingering field that slows players caught inside.' }
+            ],
+            'Breach': [
+                { key: 'Q', name: 'Flashpoint', description: 'Equip a blinding charge. Fire the charge to set a fast-acting burst through the wall. The charge detonates to blind all players looking at it.' },
+                { key: 'E', name: 'Fault Line', description: 'Equip a seismic blast. Hold Fire to increase the distance. Release to set off the quake, dazing all players in its zone and in a line up to the zone.' },
+                { key: 'C', name: 'Aftershock', description: 'Equip a fusion charge. Fire the charge to set a slow-acting burst through the wall. The burst does heavy damage to anyone caught in its area.' },
+                { key: 'X', name: 'Rolling Thunder', description: 'Equip a seismic charge. Fire to send a cascading quake through all terrain in a large cone. The quake dazes and knocks up anyone caught in it.' }
+            ],
+            'Viper': [
+                { key: 'Q', name: 'Poison Cloud', description: 'Equip a gas emitter. Fire to throw the emitter that perpetually remains throughout the round. Re-use the ability to create a toxic gas cloud at the cost of fuel.' },
+                { key: 'E', name: 'Toxic Screen', description: 'Equip a gas emitter launcher. Fire to deploy a long line of gas emitters. Re-use the ability to create a tall wall of toxic gas at the cost of fuel.' },
+                { key: 'C', name: 'Snake Bite', description: 'Equip a chemical launcher. Fire to launch a canister that shatters upon hitting the floor, creating a lingering chemical zone that damages and applies vulnerable.' },
+                { key: 'X', name: 'Viper\'s Pit', description: 'Equip a chemical sprayer. Fire to spray a chemical cloud in all directions around Viper, creating a large cloud that reduces the vision range and maximum health of players inside of it.' }
+            ]
         };
         
-        // Return default abilities if agent not found
         return agentAbilities[name] || [
             { key: 'Q', name: 'Ability 1', description: 'No description available.' },
             { key: 'E', name: 'Ability 2', description: 'No description available.' },
@@ -132,33 +160,28 @@ document.addEventListener('DOMContentLoaded', function() {
         ];
     }
 
-    // Add click event to each agent card
+    // click agent to show detailed info
     agentCards.forEach(card => {
         card.addEventListener('click', () => {
-            // Update detailed view with agent info
             updateAgentDetails(card);
             
-            // Show detailed view
             detailedView.classList.add('active');
             
-            // Mark this card as active
             agentCards.forEach(c => c.classList.remove('active'));
             card.classList.add('active');
         });
     });
 
-    // Filter buttons functionality
+    // filter buttons
     const filterButtons = document.querySelectorAll('.filter-btn');
 
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Mark this button as active
             filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
             
             const filter = button.textContent.trim();
             
-            // Show all cards if 'All' is selected
             if (filter === 'All') {
                 agentCards.forEach(card => {
                     card.style.display = 'block';
@@ -166,7 +189,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // Filter cards by role
             agentCards.forEach(card => {
                 const role = card.querySelector('.agent-role').textContent;
                 if (role === filter) {
@@ -185,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Close modal when clicking outside the content
+    // close detail info when clicking outside the content
     if (detailedView) {
         detailedView.addEventListener('click', (e) => {
             if (e.target === detailedView) {
@@ -197,11 +219,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navLinks = document.getElementById('navLinks');
     
-    // Toggle mobile menu
+    // mobile menu button
     mobileMenuBtn.addEventListener('click', function() {
         navLinks.classList.toggle('active');
         
-        // Toggle menu icon between burger and X
+        // burger and X
         const menuIcon = this.querySelector('.menu-icon');
         if (navLinks.classList.contains('active')) {
             menuIcon.innerHTML = '✕';
@@ -210,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Close menu when clicking outside
+    // close menu option when clicking outside
     document.addEventListener('click', function(event) {
         if (!event.target.closest('.mobile-menu-btn') && 
             !event.target.closest('.nav-links') && 
@@ -221,7 +243,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Close menu when window is resized above mobile breakpoint
+    // close menu when window is resized above mobile size
     window.addEventListener('resize', function() {
         if (window.innerWidth > 940 && navLinks.classList.contains('active')) {
             navLinks.classList.remove('active');

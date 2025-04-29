@@ -1,4 +1,3 @@
-/* Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -30,7 +29,6 @@ body {
     padding-right: clamp(15px, 3vw, 40px);
 }
 
-/* Glow Effects - Made more responsive with relative units */
 .glow {
     position: absolute;
     width: clamp(100px, 15vw, 150px);
@@ -58,7 +56,53 @@ body {
     right: 20%;
 }
 
-/* Navigation Bar - Mobile responsive styles */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.8;
+    z-index: 2;
+    animation: particleAnimation1 1s forwards;
+}
+
+@keyframes particleAnimation1 {
+    0% {
+        transform: scale(0) translate(0, 0);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1) translate(-30px, -30px);
+        opacity: 0;
+    }
+}
+
+.particle.variant-2 {
+    animation: particleAnimation2 1s forwards;
+}
+
+@keyframes particleAnimation2 {
+    0% {
+        transform: scale(0) translate(0, 0);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1) translate(30px, 30px);
+        opacity: 0;
+    }
+}
+
+
 .navbar {
     background-color: rgba(7, 25, 48, 0.9);
     padding: 15px 0;
@@ -130,7 +174,6 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* Mobile menu button */
 .mobile-menu-btn {
     display: none;
     background: none;
@@ -145,7 +188,6 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Enhanced Responsive Adjustments with mobile menu */
 @media (max-width: 940px) {
     .mobile-menu-btn {
         display: block;
@@ -187,7 +229,6 @@ body {
     }
 }
 
-/* Buttons with adaptive sizing */
 .cta-button {
     background: #00b3ff;
     color: #fff;
@@ -211,7 +252,6 @@ body {
     font-size: clamp(12px, 1vw, 14px);
 }
 
-/* Hero Section - Improved responsiveness with clamp and flex */
 .hero {
     display: flex;
     align-items: center;
@@ -226,7 +266,6 @@ body {
     transition: all 0.5s ease;
 }
 
-/* Grid overlay pattern */
 .hero::before {
     content: '';
     position: absolute;
@@ -309,7 +348,6 @@ body {
     transition: transform 0.5s ease, max-height 0.5s ease;
 }
 
-/* Featured Grid - More flexible grid system */
 .featured-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
@@ -335,7 +373,6 @@ body {
     box-shadow: 0 10px 25px rgba(0, 220, 255, 0.5);
 }
 
-/* "View Maps" button styling */
 .view-maps {
     display: flex;
     align-items: center;
@@ -363,7 +400,6 @@ body {
     box-shadow: 0 0 25px rgba(0, 220, 255, 0.7);
 }
 
-/* Weapon and character showcases - smoother hover effects */
 .weapon-showcase, .character-showcase {
     position: relative;
 }
@@ -379,7 +415,6 @@ body {
     transform: scale(1.05);
 }
 
-/* Machine guns section */
 .machine-guns {
     display: flex;
     align-items: center;
@@ -399,7 +434,6 @@ body {
     transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Machine guns hover description - improved transitions */
 .machine-guns::before {
     content: "";
     position: absolute;
@@ -447,20 +481,17 @@ body {
     transform: translateY(-100px);
 }
 
-/* Animation for top sections */
 @keyframes glowingBorder {
     0% { box-shadow: 0 0 10px rgba(0, 220, 255, 0.5); }
     50% { box-shadow: 0 0 20px rgba(0, 220, 255, 0.8); }
     100% { box-shadow: 0 0 10px rgba(0, 220, 255, 0.5); }
 }
 
-/* Apply enhanced effects to weapon showcase */
 .weapon-showcase {
     animation: glowingBorder 3s infinite;
     position: relative;
 }
 
-/* Interactive elements for top panel */
 .weapon-showcase::before {
     content: '';
     position: absolute;
@@ -478,7 +509,6 @@ body {
     opacity: 1;
 }
 
-/* Agents Section - Improved responsive layout */
 .agents-section {
     display: flex;
     align-items: center;
@@ -529,7 +559,6 @@ body {
     line-height: 1.6;
 }
 
-/* Maps Section - Better responsive behavior */
 .maps-section {
     display: flex;
     flex-direction: column;
@@ -580,7 +609,6 @@ body {
     transition: all 0.3s ease;
 }
 
-/* CTA Section */
 .cta-section {
     text-align: center;
     margin: clamp(40px, 8vw, 80px) 0;
@@ -595,9 +623,8 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Footer - Responsive footer */
 footer {
-    padding: clamp(20px, 4vw, 40px) 0;
+    padding-bottom: 40px;
     border-top: 1px solid rgba(78, 155, 255, 0.3);
     transition: all 0.5s ease;
 }
@@ -658,7 +685,6 @@ footer {
     transform: translateY(-3px) scale(1.1);
 }
 
-/* Enhanced Responsive Adjustments with mobile menu */
 @media (max-width: 1024px) {
     .container {
         overflow: hidden;
@@ -728,7 +754,6 @@ footer {
     }
 }
 
-/* Animation for page load */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -738,7 +763,6 @@ footer {
     animation: fadeIn 0.8s ease-out forwards;
 }
 
-/* Staggered animations for grid items */
 .grid-item:nth-child(1) { animation-delay: 0.1s; }
 .grid-item:nth-child(2) { animation-delay: 0.2s; }
 .grid-item:nth-child(3) { animation-delay: 0.3s; }

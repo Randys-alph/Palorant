@@ -32,30 +32,25 @@
     </nav>
     <div class="container">
         <img class="background-image" src="assets/Background/3409297.jpg" alt="Background">
-        <!-- Main Content -->
         <div class="main-content">
             <header class="header">
                 <h1 class="page-title">REPORT BUG</h1>
             </header>
             
-            <!-- Bug Report Form -->
             <div class="bug-report-container">
                 <p class="form-instructions">Help us improve the gameplay experience by reporting any bugs you encounter</p>
                 
                 <form id="bugReportForm">
-                    <!-- Username -->
                     <div class="form-group">
                         <label for="username" class="form-label">Username</label>
                         <input type="text" id="username" class="form-control" placeholder="Your name" required>
                     </div>
                     
-                    <!-- Email -->
                     <div class="form-group">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" id="email" class="form-control" placeholder="Official account in game" required>
                     </div>
                     
-                    <!-- Bug Category -->
                     <div class="form-group">
                         <label for="bugCategory" class="form-label">Bug Category</label>
                         <div class="select-wrapper">
@@ -71,25 +66,21 @@
                         </div>
                     </div>
                     
-                    <!-- Bug Title -->
                     <div class="form-group">
                         <label for="bugTitle" class="form-label">Bug Title</label>
                         <input type="text" id="bugTitle" class="form-control" placeholder="Briefly describe the bug" required>
                     </div>
                     
-                    <!-- Detail Description -->
                     <div class="form-group">
                         <label for="detailDescription" class="form-label">Detail Description</label>
                         <textarea id="detailDescription" class="form-control" placeholder="Explain what happened and how the bug occurred" required></textarea>
                     </div>
                     
-                    <!-- Suggestions -->
                     <div class="form-group">
                         <label for="suggestions" class="form-label">Suggestions</label>
                         <textarea id="suggestions" class="form-control" placeholder="How to improve"></textarea>
                     </div>
                     
-                    <!-- Severity Level -->
                     <div class="form-group">
                         <label class="form-label">Severity Level</label>
                         <div class="severity-options">
@@ -112,35 +103,26 @@
                         </div>
                     </div>
                     
-                    <!-- Attachment -->
                     <div class="form-group">
                         <label class="form-label">Attachment</label>
                         <label for="fileUpload" class="file-upload">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M17 8L12 3L7 8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M12 3V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
                             Upload file
                         </label>
                         <input type="file" id="fileUpload" class="file-input">
                     </div>
                     
-                    <!-- Follow-up Checkbox -->
                     <div class="checkbox-container">
                         <input type="checkbox" id="followUpCheck" class="checkbox-input">
                         <label for="followUpCheck">Would you be willing to receive follow-up emails regarding this bug report? If so, please check the box.</label>
                     </div>
                     
-                    <!-- Submit Button -->
                     <div class="submit-container">
                         <button type="submit" class="submit-button">Submit Report</button>
                     </div>
                 </form>
             </div>
         </div>
-
-        <!-- Footer - Replace with your own footer -->
+        
         <footer>
             <div class="footer-links">
                 <a href="#">Help</a>
