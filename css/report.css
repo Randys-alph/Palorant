@@ -47,7 +47,6 @@
     font-family: 'Orbitron', sans-serif;
 }
 
-/* Bug Report Form */
 .bug-report-container {
     background-color: rgba(0, 51, 102, 0.6);
     border-radius: 10px;
@@ -112,7 +111,6 @@ textarea.form-control {
     pointer-events: none;
 }
 
-/* Severity Radio Buttons */
 .severity-options {
     display: flex;
     justify-content: space-between;
@@ -132,7 +130,6 @@ textarea.form-control {
     cursor: pointer;
 }
 
-/* File Upload Button */
 .file-upload {
     display: inline-block;
     padding: 10px 15px;
@@ -157,7 +154,6 @@ textarea.form-control {
     display: none;
 }
 
-/* Checkbox for Follow-up */
 .checkbox-container {
     display: flex;
     align-items: center;
@@ -171,7 +167,6 @@ textarea.form-control {
     cursor: pointer;
 }
 
-/* Submit Button */
 .submit-container {
     text-align: center;
     margin-top: 20px;
@@ -192,7 +187,6 @@ textarea.form-control {
     background-color: #0069d9;
 }
 
-/* Responsive Adjustments */
 @media (max-width: 768px) {
     .severity-options {
         flex-direction: column;

@@ -13,7 +13,7 @@ body {
 
 .header {
     text-align: center;
-   padding-bottom: 60px;
+    padding-bottom: 60px;
 }
 
 .header h1 {
@@ -179,7 +179,6 @@ footer {
     font-size: 0.8rem;
 }
 
-/* Custom animation for logo */
 @keyframes pulse {
     0% {
         transform: translate(-50%, -50%) scale(1);
@@ -196,7 +195,6 @@ footer {
     animation: pulse 2s infinite;
 }
 
-/* Glowing effect for hero title */
 @keyframes glow {
     0% {
         text-shadow: 0 0 5px rgba(0, 191, 213, 0.5);
@@ -213,7 +211,6 @@ footer {
     animation: glow 3s infinite;
 }
 
-/* Responsive styles for smaller screens */
 @media (max-width: 768px) {
     .news-grid {
         grid-template-columns: repeat(2, 1fr);

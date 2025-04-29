@@ -1,7 +1,5 @@
-// maps.js - JavaScript for the maps page
-
 document.addEventListener('DOMContentLoaded', function() {
-    // Add scroll animations for the maps page
+    // scroll animations for the maps page
     const sections = document.querySelectorAll('section');
     
     const observer = new IntersectionObserver(entries => {
@@ -17,39 +15,20 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(section);
     });
 
-    // Add CSS for the scroll animations
-    document.head.insertAdjacentHTML('beforeend', `
-        <style>
-            .fade-in {
-                opacity: 0;
-                transform: translateY(20px);
-                transition: opacity 0.8s ease, transform 0.8s ease;
-            }
-            
-            .fade-in.visible {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        </style>
-    `);
-            
-    // Initialize with the first image of each set selected
     changeImage('sunset', 0);
     changeImage('lotus', 0);
     changeImage('icebox', 0);
     changeImage('haven', 0);
     changeImage('split', 0);
     
-    // Add click event listeners to thumbnails
+    // click function in thumbnails
     const thumbnails = document.querySelectorAll('.thumbnail');
     
     thumbnails.forEach((thumbnail, index) => {
         thumbnail.addEventListener('click', function() {
-            // Determine which map section this thumbnail belongs to
             const mapSection = this.closest('.map-section');
             if (!mapSection) return;
             
-            // Get the map name from the section
             let mapName = '';
             if (mapSection.classList.contains('sunset-section')) mapName = 'sunset';
             else if (mapSection.classList.contains('lotus-section')) mapName = 'lotus';
@@ -57,7 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
             else if (mapSection.classList.contains('haven-section')) mapName = 'haven';
             else if (mapSection.classList.contains('split-section')) mapName = 'split';
             
-            // Get the index within this section
             const thumbnailsInSection = mapSection.querySelectorAll('.thumbnail');
             const indexInSection = Array.from(thumbnailsInSection).indexOf(this);
             
@@ -67,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add hover effects to map thumbnails
+    // hover effects to map thumbnails
     thumbnails.forEach(thumbnail => {
         thumbnail.addEventListener('mouseenter', function() {
             this.style.transform = 'scale(1.05)';
@@ -80,33 +58,15 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
-    // Show More button functionality
-    const showMoreButton = document.querySelector('.show-more button');
-    if (showMoreButton) {
-        showMoreButton.addEventListener('click', function() {
-            const hiddenMaps = document.querySelectorAll('.map-section.hidden');
-            hiddenMaps.forEach(map => {
-                map.classList.remove('hidden');
-                map.classList.add('fade-in');
-                observer.observe(map);
-            });
-            
-            // Hide the button if all maps are now visible
-            if (document.querySelectorAll('.map-section.hidden').length === 0) {
-                this.parentElement.style.display = 'none';
-            }
-        });
-    }
 
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navLinks = document.getElementById('navLinks');
     
-    // Toggle mobile menu
+    // mobile menu button
     mobileMenuBtn.addEventListener('click', function() {
         navLinks.classList.toggle('active');
         
-        // Toggle menu icon between burger and X
+        // burger and X
         const menuIcon = this.querySelector('.menu-icon');
         if (navLinks.classList.contains('active')) {
             menuIcon.innerHTML = '✕';
@@ -115,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Close menu when clicking outside
+    // close menu when clicking outside
     document.addEventListener('click', function(event) {
         if (!event.target.closest('.mobile-menu-btn') && 
             !event.target.closest('.nav-links') && 
@@ -126,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Close menu when window is resized above mobile breakpoint
+    // close menu when window is resized above mobile size
     window.addEventListener('resize', function() {
         if (window.innerWidth > 940 && navLinks.classList.contains('active')) {
             navLinks.classList.remove('active');
@@ -135,7 +95,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Define image URLs for each map category
 const mapImages = {
     'sunset': [
         'assets/Maps/SUNSET/Loading_Screen_Sunset.webp',
@@ -179,14 +138,12 @@ const mapImages = {
     ]
 };
 
-// Define changeImage function in the global scope
 function changeImage(mapName, imageIndex) {
     const mainImageElement = document.getElementById(mapName + '-main');
     
     if (mainImageElement) {
         mainImageElement.style.backgroundImage = `url('${mapImages[mapName][imageIndex]}')`;
         
-        // Add highlighted styles to the selected thumbnail
         const thumbnails = mainImageElement.parentElement.querySelectorAll('.thumbnail');
         thumbnails.forEach((thumb, index) => {
             if (index === imageIndex) {

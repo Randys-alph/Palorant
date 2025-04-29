@@ -1,17 +1,14 @@
-// home.js - JavaScript for the homepage
-
-// Add glowing effects that follow mouse movement
 document.addEventListener('DOMContentLoaded', function() {
     const container = document.querySelector('.container');
     
-    // Create glow elements
+    // create glow elements
     for (let i = 1; i <= 3; i++) {
         const glow = document.createElement('div');
         glow.classList.add('glow', `glow-${i}`);
         container.appendChild(glow);
     }
     
-    // Subtle mouse movement effect for the glow elements
+    // smooth mouse movement effect for the glow elements
     document.addEventListener('mousemove', function(e) {
         const glows = document.querySelectorAll('.glow');
         const mouseX = e.clientX / window.innerWidth;
@@ -25,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Animate hero character on page load
+    // hero character animation on page load
     const heroImage = document.querySelector('.hero-image img');
     if (heroImage) {
         heroImage.style.opacity = '0';
@@ -38,25 +35,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300);
     }
     
-    // Add click event to buttons
+    // click buttons
     const buttons = document.querySelectorAll('.cta-button');
     buttons.forEach(button => {
         button.addEventListener('click', function() {
-            // Add a subtle click animation
+            // simple click animation
             this.style.transform = 'scale(0.95)';
             setTimeout(() => {
                 this.style.transform = '';
             }, 200);
-            
-            // For demonstration, we'll log the button text
-            console.log(`Button clicked: ${this.textContent.trim()}`);
-            
-            // Here you would typically add navigation or other actions
-            // For example: window.location.href = 'agents.html';
         });
     });
     
-    // Add scroll animations
+    // scroll animations
     const sections = document.querySelectorAll('section');
     
     const observer = new IntersectionObserver(entries => {
@@ -72,41 +63,20 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(section);
     });
 
-    // Add CSS for the scroll animations
-    document.head.insertAdjacentHTML('beforeend', `
-        <style>
-            .fade-in {
-                opacity: 0;
-                transform: translateY(20px);
-                transition: opacity 0.8s ease, transform 0.8s ease;
-            }
-            
-            .fade-in.visible {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        </style>
-    `);
-
-    // Add enhanced interactions for the featured grid
-    // Get the weapon showcase element
     const weaponShowcase = document.querySelector('.weapon-showcase');
-    
     if (weaponShowcase) {
-        // Create particle effects when hovering on the weapon showcase
+        // particle effects while hovering on the weapon showcase
         weaponShowcase.addEventListener('mousemove', function(e) {
-            // Get mouse position relative to the element
             const rect = this.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
             
-            // Create a particle
+            // create a particle
             const particle = document.createElement('span');
             particle.classList.add('particle');
             particle.style.left = x + 'px';
             particle.style.top = y + 'px';
-            
-            // Random size and color for particles
+
             const size = Math.random() * 10 + 5;
             const colors = ['#00dcff', '#ff3e6e', '#8862e0'];
             const color = colors[Math.floor(Math.random() * colors.length)];
@@ -115,20 +85,17 @@ document.addEventListener('DOMContentLoaded', function() {
             particle.style.height = size + 'px';
             particle.style.backgroundColor = color;
             
-            // Add to DOM
             this.appendChild(particle);
             
-            // Remove after animation
             setTimeout(() => {
                 particle.remove();
             }, 1000);
         });
     }
     
-    // Interactive hover effects for machine guns section
+    // hover effects for machine guns section
     const machineGuns = document.querySelector('.machine-guns');
     if (machineGuns) {
-        // Make title pulse on hover
         machineGuns.addEventListener('mouseenter', function() {
             const title = this.querySelector('h2');
             title.style.transition = 'transform 0.5s ease';
@@ -141,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Add parallax effect to the featured grid
+    // parallax effect
     document.addEventListener('mousemove', function(e) {
         const gridItems = document.querySelectorAll('.grid-item');
         const mouseX = e.clientX / window.innerWidth;
@@ -156,37 +123,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add CSS for particles
-    document.head.insertAdjacentHTML('beforeend', `
-        <style>
-            .particle {
-                position: absolute;
-                border-radius: 50%;
-                pointer-events: none;
-                opacity: 0.8;
-                z-index: 2;
-                animation: particleAnimation 1s forwards;
-            }
-            
-            @keyframes particleAnimation {
-                0% {
-                    transform: scale(0) translate(0, 0);
-                    opacity: 0.8;
-                }
-                100% {
-                    transform: scale(1) translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px);
-                    opacity: 0;
-                }
-            }
-        </style>
-    `);
-
-    // Animation for nodes and glows
+    // animation for nodes and glows
     function animateElements() {
         const nodes = document.querySelectorAll('.node');
         const glows = document.querySelectorAll('.glow');
         
-        // Animate nodes
+        // animate nodes
         nodes.forEach(node => {
             const x = Math.random() * 100;
             const y = Math.random() * 100;
@@ -204,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
             node.style.top = `${y}%`;
         });
         
-        // Animate glows
+        // animate glows
         glows.forEach(glow => {
             const x = Math.random() * 100;
             const y = Math.random() * 100;
@@ -222,25 +164,24 @@ document.addEventListener('DOMContentLoaded', function() {
             glow.style.top = `${y}%`;
         });
         
-        // Recreate lines after nodes have moved
+        // recreate lines after nodes have moved
         setTimeout(() => {
             const lines = document.querySelectorAll('.line');
             lines.forEach(line => line.remove());
             createLines();
         }, 30000);
         
-        // Set next animation
         setTimeout(animateElements, 30000);
     }
 
-    // Function to create lines between nodes
+    // function to create lines between nodes
     function createLines() {
         const geometricLines = document.querySelector('.geometric-lines');
         const nodes = document.querySelectorAll('.node');
         
         for (let i = 0; i < nodes.length; i++) {
             for (let j = i + 1; j < nodes.length; j++) {
-                if (Math.random() > 0.7) { // Only create some connections
+                if (Math.random() > 0.7) {
                     const node1 = nodes[i].getBoundingClientRect();
                     const node2 = nodes[j].getBoundingClientRect();
                     
@@ -266,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Initial animation cycle
+    // initial animation cycle
     setTimeout(animateElements, 5000);
 
     const mobileMenuBtn = document.createElement('button');
@@ -281,7 +222,7 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? '✕' : '☰';
     });
     
-    // Close menu when clicking outside
+    // close menu when clicking outside
     document.addEventListener('click', function(event) {
         if (!event.target.closest('.nav-links') && !event.target.closest('.mobile-menu-btn')) {
             navLinks.classList.remove('active');
